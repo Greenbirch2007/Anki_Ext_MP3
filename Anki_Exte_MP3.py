@@ -57,11 +57,14 @@ if __name__ == '__main__':
                     portion = os.path.splitext(filename)
                     first_name= k1
                     last_name= k2
+                    try:
+                    
 
 
-                    if portion[1] == "" and portion[0]==first_name:
-                        #         # 重新组合文件名和后缀名
-                        newname = last_name + ".mp3"
-                        os.rename(filename,newname)
-                    #
+                        if portion[1] == "" and portion[0]==first_name:
+                            #         # 重新组合文件名和后缀名
+                            newname = last_name + ".mp3"
+                            os.rename(filename,newname)
+                    except:
+                        pass
 
