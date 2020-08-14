@@ -1,0 +1,95 @@
+1.创建空字典
+
+1
+2
+3
+>>> dic = {}
+>>> type(dic)
+<type 'dict'>
+2.直接赋值创建
+
+1
+2
+3
+>>> dic = {'spam':1, 'egg':2, 'bar':3}
+>>> dic
+{'bar': 3, 'egg': 2, 'spam': 1}
+3.通过关键字dict和关键字参数创建
+
+1
+2
+3
+>>> dic = dict(spam = 1, egg = 2, bar =3)
+>>> dic
+{'bar': 3, 'egg': 2, 'spam': 1}
+4.通过二元组列表创建
+
+1
+2
+3
+4
+>>> list = [('spam', 1), ('egg', 2), ('bar', 3)]
+>>> dic = dict(list)
+>>> dic
+{'bar': 3, 'egg': 2, 'spam': 1}
+5.dict和zip结合创建
+
+1
+2
+3
+>>> dic = dict(zip('abc', [1, 2, 3]))
+>>> dic
+{'a': 1, 'c': 3, 'b': 2}
+6.通过字典推导式创建
+
+1
+2
+3
+>>> dic = {i:2*i for i in range(3)}
+>>> dic
+{0: 0, 1: 2, 2: 4}
+7.通过dict.fromkeys()创建
+
+通常用来初始化字典, 设置value的默认值
+
+1
+2
+3
+>>> dic = dict.fromkeys(range(3), 'x')
+>>> dic
+{0: 'x', 1: 'x', 2: 'x'}
+8.其他
+
+1
+2
+3
+4
+>>> list = ['x', 1, 'y', 2, 'z', 3]
+>>> dic = dict(zip(list[::2], list[1::2]))
+>>> dic
+{'y': 2, 'x': 1, 'z': 3}
+
+
+python-列表生成字典
+1. 列表的元素为一对数据：
+
+strlist = ['a,b','c,d']
+dict(map(lambda x:x.split(','),strlist)) #{'a': 'b', 'c': 'd'}
+2. 用索引：
+
+strlist = ['a', 'b']
+dict(zip(range(len(strlist)),strlist)) #{0: 'a', 1: 'b'}
+dict(zip(strlist,range(len(strlist)))) #{'a': 0, 'b': 1}
+3. 嵌套列表：
+
+strlist= [['k1','v1'],['k2','v2']]
+dict(strlist) #{'k2': 'v2', 'k1': 'v1'}
+4. 两个列表：
+
+strlist1=['a', 'b']
+strlist2=['k1','k2']
+dict(zip(strlist2,strlist1)) #{'k2': 'b', 'k1': 'a'}
+5. 生成式：
+
+intlist = [1,2,3]
+{i:i**2 for i in intlist} #{1: 1, 2: 4, 3: 9}
